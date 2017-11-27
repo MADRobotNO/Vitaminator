@@ -76,25 +76,20 @@ class Medicines:
             print("None")
         else:
             for key in self.medicines_temp:
-                print(str(i) + ".", str(key) + ":", self.medicines_temp[key][0])
+                print(str(i) + ".", str(key))
                 i += 1
 
     # list daily status of medicines
     def checkDailyStatus(self):
-        self.listMedicines()
+
         self.readFile()
-        i = 1
-        c = input("Choose which You would like to check: ")
+
         for key in self.medicines_temp:
-            if str(i) == c:
-                print(key, "was chosen.")
-                print("Daily status is:")
-                if self.medicines_temp[key][2]:
-                    print("You took already Your daily dose.")
-                else:
-                    print("You need to take", self.medicines_temp[key][3], "more.")
-                return
-            i += 1
+            status = self.medicines_temp[key][3]
+            if status > 0:
+                print("You need to take", self.medicines_temp[key][3], "of", key)
+            else:
+                print("You took Your daily dose of", key)
 
     # Change status of a medicine
     def changeDailyStatus(self):
