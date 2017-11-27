@@ -1,8 +1,19 @@
 """
-Vitaminator Ver.1.0 - 26.11.17
+Vitaminator Ver.1.1. - 27.11.17
 Created by Martin Agnar Dahl
 MAD Robot
 Part of a Vitaminator project
+"""
+
+"""
+Ver.1.1. 27.11.17
+Change in functions: listMedicines and checkDailyStatus.
+Code is now shorter and program is easier to follow.
+"""
+
+"""
+Ver.1.0. 26.11.17
+First version of aplication. No special functionalities, just a simple code.
 """
 
 from classes.medicines import Medicines
