@@ -85,11 +85,12 @@ class Medicines:
         self.readFile()
 
         for key in self.medicines_temp:
-            status = self.medicines_temp[key][3]
+            status = self.medicines_temp[key][2]
             if status > 0:
                 print("You need to take", self.medicines_temp[key][3], "of", key)
             else:
                 print("You took Your daily dose of", key)
+
 
     # Change status of a medicine
     def changeDailyStatus(self):
@@ -98,12 +99,12 @@ class Medicines:
         i = 1
         c = input("Choose which You would like to take: ")
         for key in self.medicines_temp:
-            status_value = self.medicines_temp[key][3]
+            status_value = self.medicines_temp[key][2]
             if str(i) == c:
                 print(key, "was taken.")
-                self.medicines_temp[key][3] = status_value - 1
-                if self.medicines_temp[key][3] == 0:
-                    self.medicines_temp[key][2] = True
+                self.medicines_temp[key][2] = status_value - 1
+                if self.medicines_temp[key][2] == 0:
+                    self.medicines_temp[key][1] = True
                 print("Status changed")
                 self.writeFile(self.medicines_temp)
                 return
@@ -129,9 +130,9 @@ class Medicines:
         else:
             self.readFile()
             for key in self.medicines_temp:
-                status_value = self.medicines_temp[key][1]
-                self.medicines_temp[key][3] = status_value
-                self.medicines_temp[key][2] = False
+                status_value = self.medicines_temp[key][0]
+                self.medicines_temp[key][2] = status_value
+                self.medicines_temp[key][1] = False
             self.writeFile(self.medicines_temp)
             resetFile = open("./classes/resetStat.dat", "w+")
             resetFile.write(str(self.day))
